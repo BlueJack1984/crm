@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.core.dao.CountryLanguageMapper" >
+  <resultMap id="BaseResultMap" type="com.example.core.entity.CountryLanguage" >
+    <constructor >
+      <arg column="CountryCode" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="Language" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="IsOfficial" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="Percentage" jdbcType="REAL" javaType="java.lang.Float" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.core.entity.CountryLanguage" >
+    insert into countrylanguage (CountryCode, Language, IsOfficial, 
+      Percentage)
+    values (#{countrycode,jdbcType=CHAR}, #{language,jdbcType=CHAR}, #{isofficial,jdbcType=CHAR}, 
+      #{percentage,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.core.entity.CountryLanguage" >
+    insert into countrylanguage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="countrycode != null" >
+        CountryCode,
+      </if>
+      <if test="language != null" >
+        Language,
+      </if>
+      <if test="isofficial != null" >
+        IsOfficial,
+      </if>
+      <if test="percentage != null" >
+        Percentage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="countrycode != null" >
+        #{countrycode,jdbcType=CHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=CHAR},
+      </if>
+      <if test="isofficial != null" >
+        #{isofficial,jdbcType=CHAR},
+      </if>
+      <if test="percentage != null" >
+        #{percentage,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

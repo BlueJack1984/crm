@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.core.dao.CityMapper">
+  <resultMap id="BaseResultMap" type="com.example.core.entity.City">
+    <constructor>
+      <arg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="Name" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="CountryCode" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="District" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Population" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.core.entity.City">
+    insert into city (ID, Name, CountryCode, 
+      District, Population)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{countrycode,jdbcType=CHAR}, 
+      #{district,jdbcType=CHAR}, #{population,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.core.entity.City">
+    insert into city
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="countrycode != null">
+        CountryCode,
+      </if>
+      <if test="district != null">
+        District,
+      </if>
+      <if test="population != null">
+        Population,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="countrycode != null">
+        #{countrycode,jdbcType=CHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=CHAR},
+      </if>
+      <if test="population != null">
+        #{population,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.example.core.entity.City">
+    <constructor>
+      <arg column="city_id" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="city" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country_id" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="last_update" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.core.entity.City">
+    insert into city (city_id, city, country_id, 
+      last_update)
+    values (#{cityId,jdbcType=SMALLINT}, #{city,jdbcType=VARCHAR}, #{countryId,jdbcType=SMALLINT}, 
+      #{lastUpdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.core.entity.City">
+    insert into city
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=SMALLINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="countryId != null">
+        #{countryId,jdbcType=SMALLINT},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.core.dao.CountryMapper">
+  <resultMap id="BaseResultMap" type="com.example.core.entity.Country">
+    <constructor>
+      <arg column="Code" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Name" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Continent" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Region" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="SurfaceArea" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="IndepYear" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="Population" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="LifeExpectancy" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="GNP" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="GNPOld" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="LocalName" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="GovernmentForm" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="HeadOfState" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Capital" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="Code2" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.core.entity.Country">
+    insert into country (Code, Name, Continent, 
+      Region, SurfaceArea, IndepYear, 
+      Population, LifeExpectancy, GNP, 
+      GNPOld, LocalName, GovernmentForm, 
+      HeadOfState, Capital, Code2
+      )
+    values (#{code,jdbcType=CHAR}, #{name,jdbcType=CHAR}, #{continent,jdbcType=CHAR}, 
+      #{region,jdbcType=CHAR}, #{surfacearea,jdbcType=REAL}, #{indepyear,jdbcType=SMALLINT}, 
+      #{population,jdbcType=INTEGER}, #{lifeexpectancy,jdbcType=REAL}, #{gnp,jdbcType=REAL}, 
+      #{gnpold,jdbcType=REAL}, #{localname,jdbcType=CHAR}, #{governmentform,jdbcType=CHAR}, 
+      #{headofstate,jdbcType=CHAR}, #{capital,jdbcType=INTEGER}, #{code2,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.core.entity.Country">
+    insert into country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="continent != null">
+        Continent,
+      </if>
+      <if test="region != null">
+        Region,
+      </if>
+      <if test="surfacearea != null">
+        SurfaceArea,
+      </if>
+      <if test="indepyear != null">
+        IndepYear,
+      </if>
+      <if test="population != null">
+        Population,
+      </if>
+      <if test="lifeexpectancy != null">
+        LifeExpectancy,
+      </if>
+      <if test="gnp != null">
+        GNP,
+      </if>
+      <if test="gnpold != null">
+        GNPOld,
+      </if>
+      <if test="localname != null">
+        LocalName,
+      </if>
+      <if test="governmentform != null">
+        GovernmentForm,
+      </if>
+      <if test="headofstate != null">
+        HeadOfState,
+      </if>
+      <if test="capital != null">
+        Capital,
+      </if>
+      <if test="code2 != null">
+        Code2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="continent != null">
+        #{continent,jdbcType=CHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=CHAR},
+      </if>
+      <if test="surfacearea != null">
+        #{surfacearea,jdbcType=REAL},
+      </if>
+      <if test="indepyear != null">
+        #{indepyear,jdbcType=SMALLINT},
+      </if>
+      <if test="population != null">
+        #{population,jdbcType=INTEGER},
+      </if>
+      <if test="lifeexpectancy != null">
+        #{lifeexpectancy,jdbcType=REAL},
+      </if>
+      <if test="gnp != null">
+        #{gnp,jdbcType=REAL},
+      </if>
+      <if test="gnpold != null">
+        #{gnpold,jdbcType=REAL},
+      </if>
+      <if test="localname != null">
+        #{localname,jdbcType=CHAR},
+      </if>
+      <if test="governmentform != null">
+        #{governmentform,jdbcType=CHAR},
+      </if>
+      <if test="headofstate != null">
+        #{headofstate,jdbcType=CHAR},
+      </if>
+      <if test="capital != null">
+        #{capital,jdbcType=INTEGER},
+      </if>
+      <if test="code2 != null">
+        #{code2,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.example.core.entity.Country">
+    <constructor>
+      <arg column="country_id" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="last_update" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.core.entity.Country">
+    insert into country (country_id, country, last_update
+      )
+    values (#{countryId,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.core.entity.Country">
+    insert into country
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        country_id,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="lastUpdate != null">
+        last_update,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countryId != null">
+        #{countryId,jdbcType=SMALLINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdate != null">
+        #{lastUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
