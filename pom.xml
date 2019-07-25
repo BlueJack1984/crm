@@ -29,6 +29,7 @@
         <module>app</module>
         <module>core</module>
         <module>dubbo</module>
+        <module>utils</module>
     </modules>
     <!--定义依赖管理标签,在这其中定义的依赖，子工程引用时不再需要写版本号，
     直接使用父工程的版本号即可-->
