@@ -22,6 +22,10 @@
         <dubbo.version>2.5.3</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
         <mybatis.version>1.3.1</mybatis.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <swagger2-ui.version>2.9.2</swagger2-ui.version>
+        <swagger-bootstrap-ui.version>2.9.2</swagger-bootstrap-ui.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     </properties>
 
     <modules>
@@ -31,6 +35,7 @@
         <module>dubbo</module>
         <module>utils</module>
         <module>bean</module>
+        <module>eureka-server</module>
     </modules>
     <!--定义依赖管理标签,在这其中定义的依赖，子工程引用时不再需要写版本号，
     直接使用父工程的版本号即可-->
@@ -60,9 +65,31 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
+            <!-- swagger2配置 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
     <!--该插件作用是打一个可运行的包，必须要写在需要打包的项目里。
     这里的父模块不需要打包运行，所以删掉该插件。-->
     <!--<build>-->

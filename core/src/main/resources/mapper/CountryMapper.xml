@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.core.dao.CountryMapper">
-  <resultMap id="BaseResultMap" type="com.example.core.entity.Country">
+  <resultMap id="BaseResultMap" type="com.example.bean.entity.Country">
     <constructor>
       <arg column="Code" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="Name" javaType="java.lang.String" jdbcType="CHAR" />
@@ -20,7 +20,7 @@
       <arg column="Code2" javaType="java.lang.String" jdbcType="CHAR" />
     </constructor>
   </resultMap>
-  <insert id="insert" parameterType="com.example.core.entity.Country">
+  <insert id="insert" parameterType="com.example.bean.entity.Country">
     insert into country (Code, Name, Continent, 
       Region, SurfaceArea, IndepYear, 
       Population, LifeExpectancy, GNP, 
@@ -34,7 +34,7 @@
       #{headofstate,jdbcType=CHAR}, #{capital,jdbcType=INTEGER}, #{code2,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.core.entity.Country">
+  <insert id="insertSelective" parameterType="com.example.bean.entity.Country">
     insert into country
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="code != null">
@@ -128,44 +128,6 @@
       </if>
       <if test="code2 != null">
         #{code2,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <resultMap id="BaseResultMap" type="com.example.core.entity.Country">
-    <constructor>
-      <arg column="country_id" javaType="java.lang.Short" jdbcType="SMALLINT" />
-      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="last_update" javaType="java.util.Date" jdbcType="TIMESTAMP" />
-    </constructor>
-  </resultMap>
-  <insert id="insert" parameterType="com.example.core.entity.Country">
-    insert into country (country_id, country, last_update
-      )
-    values (#{countryId,jdbcType=SMALLINT}, #{country,jdbcType=VARCHAR}, #{lastUpdate,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.example.core.entity.Country">
-    insert into country
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="countryId != null">
-        country_id,
-      </if>
-      <if test="country != null">
-        country,
-      </if>
-      <if test="lastUpdate != null">
-        last_update,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="countryId != null">
-        #{countryId,jdbcType=SMALLINT},
-      </if>
-      <if test="country != null">
-        #{country,jdbcType=VARCHAR},
-      </if>
-      <if test="lastUpdate != null">
-        #{lastUpdate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>

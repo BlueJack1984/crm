@@ -1,6 +1,6 @@
 package com.example.core.dao;
 
-import com.example.core.entity.CountryLanguage;
+import com.example.bean.entity.CountryLanguage;
 
 public interface CountryLanguageMapper {
     int insert(CountryLanguage record);

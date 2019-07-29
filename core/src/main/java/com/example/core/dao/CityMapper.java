@@ -1,6 +1,6 @@
 package com.example.core.dao;
 
-import com.example.core.entity.City;
+import com.example.bean.entity.City;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

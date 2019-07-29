@@ -1,6 +1,6 @@
 package com.example.core.dao;
 
-import com.example.core.entity.Country;
+import com.example.bean.entity.Country;
 
 public interface CountryMapper {
     int insert(Country record);
