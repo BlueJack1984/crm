@@ -29,6 +29,7 @@
         <pagehelper.version>1.2.5</pagehelper.version>
         <mybatis-plus-boot.version>3.0.5</mybatis-plus-boot.version>
         <mybatis-plus.version>3.0.6</mybatis-plus.version>
+        <dubbo.version>2.7.0</dubbo.version>
     </properties>
 
     <modules>
@@ -42,6 +43,7 @@
         <module>eureka-client-customer</module>
         <module>eureka-client-order</module>
         <module>eureka-client-employee</module>
+        <module>zookeeper</module>
     </modules>
     <!--定义依赖管理标签,在这其中定义的依赖，子工程引用时不再需要写版本号，
     直接使用父工程的版本号即可-->
@@ -108,6 +110,17 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--整合dubbo-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
