@@ -26,6 +26,7 @@
         <swagger2-ui.version>2.9.2</swagger2-ui.version>
         <swagger-bootstrap-ui.version>2.9.2</swagger-bootstrap-ui.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <pagehelper.version>1.2.5</pagehelper.version>
     </properties>
 
     <modules>
@@ -90,6 +91,11 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

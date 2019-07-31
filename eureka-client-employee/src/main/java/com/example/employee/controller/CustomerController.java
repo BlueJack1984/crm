@@ -28,4 +28,23 @@ public class CustomerController {
         Customer customer = feignRemoteService.getInformationById(id);
         return customer;
     }
+
+    /**
+     *  学员列表分页
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+//    @Override
+//    public PageInfo<Student> findByPage(int pageNum, int pageSize) {
+//        //设置分页信息，该设置需在读取mapper中的方法前执行
+//        PageHelper.startPage(pageNum, pageSize);
+//
+//        //获取所有学员结果集
+//        List<Student> list = studentMapper.findAll();
+//
+//        PageInfo<Student> pageInfo = new PageInfo<>(list);
+//
+//        return pageInfo;
+//    }
 }
