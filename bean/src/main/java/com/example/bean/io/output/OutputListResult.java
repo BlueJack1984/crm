@@ -1,5 +1,6 @@
 package com.example.bean.io.output;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageInfo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -23,10 +24,10 @@ public class OutputListResult<T> extends OutputResult<List<T>> {
     /**
      * 返回逻辑分页结果
      */
-//    public OutputListResult(Page<T> data){
-//        super(data.getRecords());
-//        this.total = data.getTotal();
-//    }
+    public OutputListResult(Page<T> data){
+        super(data.getRecords());
+        this.total = data.getTotal();
+    }
     /**
      * 返回物理分页结果
      * 例如采用PageHelper插件实现分页
