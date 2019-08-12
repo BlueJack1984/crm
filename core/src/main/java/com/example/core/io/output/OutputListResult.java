@@ -1,4 +1,4 @@
-package com.example.bean.io.output;
+package com.example.core.io.output;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.github.pagehelper.PageInfo;

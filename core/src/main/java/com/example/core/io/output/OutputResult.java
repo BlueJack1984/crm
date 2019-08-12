@@ -1,4 +1,4 @@
-package com.example.bean.io.output;
+package com.example.core.io.output;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
